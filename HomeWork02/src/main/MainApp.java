@@ -24,7 +24,7 @@ public class MainApp {
         HandlerList handlerList = new HandlerList();
         handlerList.setHandlers(new Handler[]{handler, context});
 
-        Server server = new Server(8080);
+        Server server = new Server(6063);
         server.setHandler(handlerList);
 
         server.start();

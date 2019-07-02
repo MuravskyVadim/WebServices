@@ -12,7 +12,7 @@ public class Main {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(frontend), "/mirror");
 
-        Server server = new Server(8080);
+        Server server = new Server(6063);
         server.setHandler(context);
 
         server.start();

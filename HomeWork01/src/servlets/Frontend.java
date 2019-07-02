@@ -3,18 +3,21 @@ package servlets;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 
 public class Frontend extends HttpServlet {
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String value = req.getParameter("key");
+    private static final String TEXT_HTML = "text/html";
+    private static final String CHARSET_UTF_8 = "charset=utf-8";
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String value = request.getParameter("key");
 
         if (value != null) {
-            resp.getWriter().println(value);
+            response.getWriter().println(value);
         }
-
-        resp.setContentType("text/html;charset=utf-8");
-        resp.setStatus(HttpServletResponse.SC_OK);
+        response.setContentType(TEXT_HTML + File.pathSeparator + CHARSET_UTF_8);
+        response.setStatus(HttpServletResponse.SC_OK);
 
     }
 }
