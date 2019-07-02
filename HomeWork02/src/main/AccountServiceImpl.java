@@ -1,8 +1,9 @@
 package main;
 
 import inteface.AccountService;
-import java.util.Map;
+
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class AccountServiceImpl implements AccountService {
@@ -10,7 +11,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void singUp(String login, String password) {
-        if(Objects.nonNull(login)) {
+        if (Objects.nonNull(login)) {
             signedUpUsers.put(login, new UserProfile(login, password));
         }
     }
@@ -18,6 +19,6 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public boolean singIn(String login, String password) {
         UserProfile profile = signedUpUsers.get(login);
-        return profile != null;
+        return Objects.nonNull(profile);
     }
 }
